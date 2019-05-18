@@ -19,6 +19,9 @@ class Mahasiswa extends REST_Controller
 		parent::__construct();
 
 		$this->load->model('Mahasiswa_model', 'mhs');
+
+		$this->methods['index_get']['limit'] = 2; // Limit, get per jam hanya boleh 2 kali request, sebenerenya untuk membatasi untuk request yang banyak
+		$this->methods['index_delete']['limit'] =4; // Limit, get per jam hanya boleh 4 kali request, sebenerenya untuk membatasi untuk request yang banyak
 	}
 
 	// Get
@@ -118,4 +121,7 @@ class Mahasiswa extends REST_Controller
 			}
 		}
 	}
+
+	// Limit methode per jam
+	//$this->methods['METHOD_NAME']['limit'] = [NUM_REQUESTS_PER_HOUR];
 }
